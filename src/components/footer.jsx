@@ -13,8 +13,13 @@ export const Footer = () => {
             <NavLink to={"/home"}>
                 <img src={icon2} alt="icon2" />
             </NavLink>
-            <img src={icon3} alt="icon3" />
+            
+            <NavLink to={"/search"}>
+                <img src={icon3} alt="icon3" />
+            </NavLink>
+
             <img src={icon4} alt="icon4" />
+
             <NavLink to={"/you"}>
                 <img src={icon5} alt="icon5" />
             </NavLink>
@@ -22,6 +27,7 @@ export const Footer = () => {
             <NavLink to={"/profile"}>
                 <img src={Profil} alt="Profil" />
             </NavLink>
+
         </Wrapper>
     )
 }
