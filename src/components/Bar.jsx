@@ -17,6 +17,8 @@ export default function Bar() {
 }
 
 const Wrapper = styled.div`
+  position: relative;
+  z-index: 4;
   padding: 14px 5px 12px;
   display: flex;
   align-items: center;

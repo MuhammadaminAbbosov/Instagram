@@ -10,7 +10,10 @@ import YouIcon from "../assets/icons/youIcon.svg"
 import PostImage from "../assets/images/post-Image.png"
 import { Footer } from "../components/footer"
 import { useState } from "react"
+<<<<<<< HEAD
 import { Link, NavLink } from "react-router-dom"
+=======
+>>>>>>> cc545ccab4e20b024a8075060baae2be19ed3185
 import ArchiveIcon from "../assets/icons/ArchiveIcon.svg"
 import YourActivity from "../assets/icons/Your Activity-Icon.svg"
 import NametagIcon from "../assets/icons/Nametag-Icon.svg"
@@ -100,9 +103,9 @@ const Profile = () => {
                         <b>s.khasanov_</b>
 
                         {
-                            settings.map((data) => {
+                            settings.map((data, index) => {
                                 return (
-                                    <div className="display" onClick={handleClick}>
+                                    <div className="display" key={index} onClick={handleClick}>
                                         <img src={data.img} alt="settings" />
                                         <p>{data.title}</p>
                                     </div>
@@ -125,9 +128,9 @@ const Profile = () => {
 
                         <img src={ProfileImage} alt="ProfilImage" />
 
-                        {Statistics.map((text) => {
+                        {Statistics.map((text, index) => {
                             return (
-                                <div className="stats">
+                                <div className="stats" key={index}>
                                     <b>{text.bold}</b>
                                     <p>{text.paragraph}</p>
                                 </div>
@@ -150,10 +153,8 @@ const Profile = () => {
 
                     <Storys>
                         {
-                            storys.map((item) => {
-                                return <>
-                                    <img src={item.img} alt="Story" />
-                                </>
+                            storys.map((item, index) => {
+                                return <img src={item.img} key={index} alt="Story" />
                             })
                         }
                     </Storys>
@@ -167,11 +168,9 @@ const Profile = () => {
 
                 <Posts>
                     {
-                        posts.map((post) => {
+                        posts.map((post, index) => {
                             return (
-                                <>
-                                    <img src={post.img} alt="post" />
-                                </>
+                                <img src={post.img} key={index} alt="post" />
                             )
                         })
                     }
@@ -242,7 +241,10 @@ const Headers = styled.div`
 
             .nav {
                 position: absolute;
-                right: 15px;
+                right: 13px;
+                top: 13px;
+                width: 20px;
+                height: 20px;
             }
 
             .display {
@@ -250,6 +252,7 @@ const Headers = styled.div`
                 display: flex;
                 align-items: center;
                 gap: 15px;
+                cursor: pointer;
 
                 p {
                     font-weight: 400;

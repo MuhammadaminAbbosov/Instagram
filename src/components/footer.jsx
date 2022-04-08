@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import icon2 from "../assets/icons/homeIcon.svg"
-import icon3 from "../assets/icons/search.svg"
-import icon4 from "../assets/icons/createIcon.svg"
-import icon5 from "../assets/icons/likeIcon.svg"
+import {ReactComponent as Icon2} from "../assets/icons/homeIcon.svg"
+import {ReactComponent as Icon3} from "../assets/icons/search.svg"
+import {ReactComponent as Icon4} from "../assets/icons/createIcon.svg"
+import {ReactComponent as Icon5} from "../assets/icons/likeIcon.svg"
 import Profil from "../assets/images/Oval-profil.png"
 import {NavLink} from "react-router-dom"
 
@@ -10,24 +10,22 @@ import {NavLink} from "react-router-dom"
 export const Footer = () => {
     return (
         <Wrapper>
-            <NavLink to={"/home"}>
-                <img src={icon2} alt="icon2" />
+            <NavLink to={"/user"}>
+                <Icon2 />
             </NavLink>
-            
-            <NavLink to={"/search"}>
-                <img src={icon3} alt="icon3" />
+            <NavLink to={"/user/search"}>
+                <Icon3 />
+            </NavLink>
+            <NavLink to={"/"}>
+                <Icon4 />
+            </NavLink>
+            <NavLink to={"/user/likes"}>
+                <Icon5 />
             </NavLink>
 
-            <img src={icon4} alt="icon4" />
-
-            <NavLink to={"/you"}>
-                <img src={icon5} alt="icon5" />
-            </NavLink>
-
-            <NavLink to={"/profile"}>
+            <NavLink to={"/user/profile"}>
                 <img src={Profil} alt="Profil" />
             </NavLink>
-
         </Wrapper>
     )
 }
@@ -45,5 +43,12 @@ const Wrapper = styled.div`
     box-shadow: 0px -0.33px 0px #A6A6AA;
     border-top: 1px solid grey;
 
+    a {
+        &.active {
+            svg {
+                background-color: red;
+            }
+        }
+    }
     
 `
