@@ -24,108 +24,110 @@ export const Like = () => {
                 <p>Follow Requests</p>
             </div>
 
-            
-            {
-                likedata.map((data, index) =>  {
-                    return (
-                        <div className="liked-photo" key={index}>
+            <Container>
 
-                            <b>{data.paragraph}</b>
-            
-                            <div className="like">
-                                <div className="image-text">
-                                    <img src={data.icon} alt="girl" />
-                                    <p>{data.text}</p>
+                {
+                    likedata.map((data, index) =>  {
+                        return (
+                            <div className="liked-photo" key={index}>
+
+                                <b>{data.paragraph}</b>
+                
+                                <div className="like">
+                                    <div className="image-text">
+                                        <img src={data.icon} alt="girl" />
+                                        <p>{data.text}</p>
+                                    </div>
+                
+                                    <img src={data.img} alt="" />
                                 </div>
-            
-                                <img src={data.img} alt="" />
                             </div>
+                        )
+                    })
+                }
+
+                <div className="liked-photo">
+                    <b>This Week</b>
+
+                    <div className="like">
+                        <div className="image-text">
+                            <img src={girlImage} alt="girl" />
+                            <p>craig_love mentioned you in a comment: @jacob_w exactly.. 💫 2d</p>
                         </div>
-                    )
-                })
-            }
 
-        
-
-            <div className="liked-photo">
-                <b>This Week</b>
-
-                <div className="like">
-                    <div className="image-text">
-                        <img src={girlImage} alt="girl" />
-                        <p>craig_love mentioned you in a comment: @jacob_w exactly.. 💫 2d</p>
+                        <img src={Image} alt="" />
                     </div>
 
-                    <img src={Image} alt="" />
-                </div>
+                    <div className="like">
+                        <div className="image-text">
+                            <img src={girlImage} alt="girl" />
+                            <p>martini_rond started following you. 3d</p>
+                        </div>
 
-                <div className="like">
-                    <div className="image-text">
-                        <img src={girlImage} alt="girl" />
-                        <p>martini_rond started following you. 3d</p>
+                        <button>Message</button>
                     </div>
 
-                    <button>Message</button>
+                    <div className="like">
+                        <div className="image-text">
+                            <img src={girlImage} alt="girl" />
+                            <p>mis_potter started following you. 3d</p>
+                        </div>
+
+                        <button className="follow">Follow</button>
+                    </div>
+                    
                 </div>
 
-                <div className="like">
-                    <div className="image-text">
-                        <img src={girlImage} alt="girl" />
-                        <p>mis_potter started following you. 3d</p>
+                <div className="liked-photo">
+                    <b>This Month</b>
+
+                    <div className="like">
+                        <div className="image-text">
+                            <img src={girlImage} alt="girl" />
+                            <p>craig_love mentioned you in a comment: @jacob_w exactly.. 💫 2d</p>
+                        </div>
+
+                        <img src={Image} alt="" />
                     </div>
 
-                    <button className="follow">Follow</button>
-                </div>
-                
-            </div>
+                    <div className="like">
+                        <div className="image-text">
+                            <img src={girlImage} alt="girl" />
+                            <p>martini_rond started following you. 3d</p>
+                        </div>
 
-            <div className="liked-photo">
-                <b>This Month</b>
-
-                <div className="like">
-                    <div className="image-text">
-                        <img src={girlImage} alt="girl" />
-                        <p>craig_love mentioned you in a comment: @jacob_w exactly.. 💫 2d</p>
+                        <button>Message</button>
                     </div>
+                    
+                    <div className="like">
+                        <div className="image-text">
+                            <img src={girlImage} alt="girl" />
+                            <p>martini_rond started following you. 3d</p>
+                        </div>
 
-                    <img src={Image} alt="" />
-                </div>
-
-                <div className="like">
-                    <div className="image-text">
-                        <img src={girlImage} alt="girl" />
-                        <p>martini_rond started following you. 3d</p>
+                        <button className="follow">Follow</button>
                     </div>
+                    <div className="like">
+                        <div className="image-text">
+                            <img src={girlImage} alt="girl" />
+                            <p>martini_rond started following you. 3d</p>
+                        </div>
 
-                    <button>Message</button>
-                </div>
-                
-                <div className="like">
-                    <div className="image-text">
-                        <img src={girlImage} alt="girl" />
-                        <p>martini_rond started following you. 3d</p>
+                        <button className="follow">Follow</button>
                     </div>
+                    <div className="like">
+                        <div className="image-text">
+                            <img src={girlImage} alt="girl" />
+                            <p>martini_rond started following you. 3d</p>
+                        </div>
 
-                    <button className="follow">Follow</button>
-                </div>
-                <div className="like">
-                    <div className="image-text">
-                        <img src={girlImage} alt="girl" />
-                        <p>martini_rond started following you. 3d</p>
+                        <button className="follow">Follow</button>
                     </div>
-
-                    <button className="follow">Follow</button>
+                    
                 </div>
-                <div className="like">
-                    <div className="image-text">
-                        <img src={girlImage} alt="girl" />
-                        <p>martini_rond started following you. 3d</p>
-                    </div>
 
-                    <button className="follow">Follow</button>
-                </div>
-                
-            </div>
+            </Container>
+            
 
             <Footer />
         </Wrapper>
@@ -237,5 +239,14 @@ const Header = styled.div`
         line-height: 21px;
         letter-spacing: -0.33px;
         color: #262626;
+    }
+`
+const Container = styled.div`
+    width: 100%;
+    height: 686px;
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
     }
 `

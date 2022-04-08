@@ -1,17 +1,34 @@
 import styled from "styled-components"
 import Bar from "../components/Bar"
 import ProfileImage from "../assets/images/Profile.png" 
+import { useNavigate } from "react-router-dom"
 
 export const EditProfile = () => {
+
+    const navigate = useNavigate()
+
+    const info = [
+        {title: "Name"},
+        {title: "Username"},
+        {title: "Website"},
+        {title: "Bio"}
+    ]
+
+    const information = [
+        {title: "Email"},
+        {title: "Phone"},
+        {title: "Gender"}
+    ]
+
     return (
         <Wrapper>
 
             <Headers>
                 <Bar />
                 <header>
-                    <span>Cancel</span>
+                    <span onClick={() => navigate(-1)}>Cancel</span>
                     <b>Edit Profile</b>
-                    <p>Done</p>
+                    <p onClick={() => navigate(-1)}>Done</p>
                 </header>
             </Headers>
 
@@ -21,10 +38,35 @@ export const EditProfile = () => {
             </div>
             
             <div className="info">
-                <form action="">
-                    <label htmlFor="Name">Name</label>
-                    <input type="text" />
-                </form>
+                {
+                    info.map((data) => {
+                        return (
+                            <form action="edit">
+                                <label htmlFor="Name">{data.title}</label>
+                                <input type="text" />
+                            </form>
+                        )
+                    })
+                }
+            </div>
+
+            <div className="information">
+                <p>Switch to Professional Account</p>
+                <b>Private Information</b>
+
+                <div className="info">
+                    {
+                        information.map((data) => {
+                            return (
+                                <form action="edit">
+                                    <label htmlFor="Name">{data.title}</label>
+                                    <input type="text" />
+                                </form>
+                            )
+                        })
+                    }
+                </div>
+
             </div>
         </Wrapper>
     )
@@ -53,9 +95,6 @@ const Wrapper = styled.div`
         padding: 15px;
         width: 100%;
         height: 200px;
-        background: #FAFAFA;
-        border-bottom:  0.33px solid rgba(60, 60, 67, 0.29);
-        border-top:  0.33px solid rgba(60, 60, 67, 0.29);
 
         form {
             display: flex;
@@ -70,6 +109,31 @@ const Wrapper = styled.div`
                 border-bottom: 0.33px solid rgba(60, 60, 67, 0.29);
                 background-color: transparent;
             }
+        }
+    }
+
+    .information {
+        height: auto;
+        padding: 15px;
+        border-bottom: 0.33px solid rgba(60,60,67,0.29);
+        border-top: 0.33px solid rgba(60,60,67,0.29);
+
+        p {
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 18px;
+            letter-spacing: -0.25px;
+            color: #3897F0;
+        }
+
+        b {
+            display: block;
+            margin-top: 30px;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 20px;
+            letter-spacing: -0.25px;
+            color: #262626;
         }
     }
 `
@@ -92,6 +156,7 @@ const Headers = styled.div`
 
         p {
             color: #3897F0;
+            cursor: pointer;
         }
     }   
 `
