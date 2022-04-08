@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
+import { EditProfile } from "./containers/EditProfile";
 import Login from "./containers/Login";
 import LoginPage from "./containers/LoginPage";
 import Profile from "./containers/Profile";
@@ -13,6 +14,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/search" element={<Search /> } />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/edit-profile" element={<EditProfile />} />
       </Routes>
     </Wrapper>
   );

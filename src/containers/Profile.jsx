@@ -10,7 +10,7 @@ import YouIcon from "../assets/icons/youIcon.svg"
 import PostImage from "../assets/images/post-Image.png"
 import { Footer } from "../components/footer"
 import { useState } from "react"
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import ArchiveIcon from "../assets/icons/ArchiveIcon.svg"
 import YourActivity from "../assets/icons/Your Activity-Icon.svg"
 import NametagIcon from "../assets/icons/Nametag-Icon.svg"
@@ -144,7 +144,9 @@ const Profile = () => {
                         </p>
                     </div>
 
-                    <button>Edit Profile</button>
+                    <Link to={"/edit-profile"}>
+                        <button>Edit Profile</button>
+                    </Link>
 
                     <Storys>
                         {
