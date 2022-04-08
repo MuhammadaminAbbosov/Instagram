@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Like } from "./containers/Like";
 import Login from "./containers/Login";
 import LoginPage from "./containers/LoginPage";
+import Profile from "./containers/Profile";
 import Search from "./containers/Search";
 
 function App() {
@@ -12,7 +13,11 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/search" element={<Search /> } />
+<<<<<<< HEAD
         <Route path="/likes" element={<Like />} /> 
+=======
+        <Route path="/profile" element={<Profile />} />
+>>>>>>> 99b06d7aa0d07131672053cf5c527283f3ec9f91
       </Routes>
     </Wrapper>
   );
