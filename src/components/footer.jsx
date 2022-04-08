@@ -10,35 +10,22 @@ import {NavLink} from "react-router-dom"
 export const Footer = () => {
     return (
         <Wrapper>
-            <NavLink to={"/home"}>
+            <NavLink to={"/user"}>
                 <Icon2 />
             </NavLink>
-<<<<<<< HEAD
-            <NavLink to={"/search"}>
+            <NavLink to={"/user/search"}>
                 <Icon3 />
             </NavLink>
             <NavLink to={"/"}>
                 <Icon4 />
             </NavLink>
-            <NavLink to={"/likes"}>
+            <NavLink to={"/user/likes"}>
                 <Icon5 />
-=======
-            
-            <NavLink to={"/search"}>
-                <img src={icon3} alt="icon3" />
             </NavLink>
 
-            <img src={icon4} alt="icon4" />
-
-            <NavLink to={"/you"}>
-                <img src={icon5} alt="icon5" />
->>>>>>> 99b06d7aa0d07131672053cf5c527283f3ec9f91
-            </NavLink>
-
-            <NavLink to={"/profile"}>
+            <NavLink to={"/user/profile"}>
                 <img src={Profil} alt="Profil" />
             </NavLink>
-
         </Wrapper>
     )
 }
