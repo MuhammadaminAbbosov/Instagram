@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
+import { Like } from "./containers/Like";
 import Login from "./containers/Login";
 import LoginPage from "./containers/LoginPage";
 import Search from "./containers/Search";
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/search" element={<Search /> } />
+        <Route path="/likes" element={<Like />} /> 
       </Routes>
     </Wrapper>
   );
