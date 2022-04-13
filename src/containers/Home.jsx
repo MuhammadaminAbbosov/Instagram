@@ -96,6 +96,18 @@ export default function Home() {
                     id: 3,
                     image: PostImage
                 },
+                {
+                    id: 4,
+                    image: PostImage
+                },
+                {
+                    id: 5,
+                    image: ImageTest
+                },
+                {
+                    id: 6,
+                    image: PostImage
+                },
             ],
             title: "The game in Japan was amazing and I want to share some photos",
             liked: [
@@ -114,15 +126,7 @@ export default function Home() {
                 {
                     id: 1,
                     image: PostImage
-                },
-                {
-                    id: 2,
-                    image: PostImage
-                },
-                {
-                    id: 3,
-                    image: PostImage
-                },
+                }
             ],
             title: "The game in Japan was amazing and I want to share some photos",
             liked: [
