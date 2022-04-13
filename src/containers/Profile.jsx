@@ -159,8 +159,12 @@ const Profile = () => {
                     </Storys>
 
                     <div className="Icons">
-                        <img src={GridIcon} alt="GridIcon" />
-                        <img src={YouIcon} alt="icon2" />
+                        <Link to="/user/profile">
+                            <img src={GridIcon} alt="GridIcon" />
+                        </Link>
+                        <Link to="/user/all-posts">
+                            <img src={YouIcon} alt="icon2" />
+                        </Link>
                     </div>
 
                 </Profil>
@@ -282,6 +286,10 @@ const Profil = styled.div`
         display: flex;
         justify-content: space-around;
         position: sticky;
+
+        img {
+            cursor: pointer;
+        }
     }
 
     .Profile {
@@ -342,6 +350,10 @@ const Profil = styled.div`
 
 const Storys = styled.div`
     margin: 16px 0;
+
+    img {
+        cursor: pointer;
+    }
 `
 const Posts = styled.div`
     display: grid;
@@ -350,5 +362,9 @@ const Posts = styled.div`
 
     &::-webkit-scrollbar {
         display: none;
+    }
+
+    img {
+        cursor: pointer;
     }
 `

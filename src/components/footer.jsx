@@ -42,13 +42,5 @@ const Wrapper = styled.div`
     background: #FAFAFA;
     box-shadow: 0px -0.33px 0px #A6A6AA;
     border-top: 1px solid grey;
-
-    a {
-        &.active {
-            svg {
-                background-color: red;
-            }
-        }
-    }
     
 `

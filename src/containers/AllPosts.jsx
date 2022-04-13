@@ -36,18 +36,16 @@ export const AllPosts = () => {
             <Headers>
                 <Bar /> 
                 <header>
-                    <img onClick={() => navigate("/user")} src={BackIcon} alt="BackIcon" />
+                    <img onClick={() => navigate(-1)} src={BackIcon} alt="BackIcon" />
                     <b>All posts</b>
                 </header>
             </Headers>
 
             <Container>
                 {
-                    posts.map((post) => {
+                    posts.map((post, index) => {
                         return (
-                            <>
-                                <img src={post.img} alt="image" />
-                            </>
+                            <img src={post.img} key={index} alt="" />
                         )
                     })
                 }
@@ -70,6 +68,10 @@ const Headers = styled.div`
         display: flex;
         align-items: center;
         gap: 130px;
+
+        img {
+            cursor: pointer;
+        }
 
         b {
             font-weight: 600;
