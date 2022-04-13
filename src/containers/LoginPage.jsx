@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -6,6 +6,8 @@ import Bar from '../components/Bar'
 import BackIcon from "../assets/icons/Back.svg"
 import InstagramIcon from "../assets/icons/Instagram Logo.svg"
 import FacebookIcon from "../assets/icons/facebook.svg"
+import marat from "../utils/axios"
+import axios from 'axios'
 
 export default function LoginPage() {
     const navigate = useNavigate()
@@ -13,6 +15,26 @@ export default function LoginPage() {
     const submitForm = (e) => {
         e.preventDefault()
     }
+
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+
+
+    const loginSubmit = () => {
+
+        marat.post("/auth/login", {
+            username: username,
+            password: password
+        }).then(res => {
+            console.log(res)
+            localStorage.setItem("user-token", res.data.jwt);
+            navigate("/user/profile");
+        })
+        .catch(({ message }) => {
+            console.log(message);
+        })
+    }
+
     return (
         <Wrapper>
             <Bar />
@@ -20,11 +42,10 @@ export default function LoginPage() {
             <img src={InstagramIcon} className="instagram-icon" alt="" />
 
             <form className='' onSubmit={(e) => submitForm(e)}>
-                <input type="text" placeholder='Username' />
-                <input type="password" placeholder='Password' />
+                <input onChange={({ target }) => setUsername(target.value)} type="text" placeholder='Username' />
+                <input onChange={({ target }) => setPassword(target.value)} type="password" placeholder='Password' />
                 <Link to="/">Forgot password?</Link>
-                {/* disabled style={{opacity: 0.5}}  */}
-                <button>Log in</button>
+                <button onClick={loginSubmit}>Log in</button>
             </form>
 
             <div className="login-facebook">

@@ -2,23 +2,41 @@ import styled from "styled-components"
 import Bar from "../components/Bar"
 import ProfileImage from "../assets/images/Profile.png" 
 import { useNavigate } from "react-router-dom"
+import { useState } from "react"
+import marat from "../utils/axios"
 
 export const EditProfile = () => {
 
     const navigate = useNavigate()
 
-    const info = [
-        {title: "Name"},
-        {title: "Username"},
-        {title: "Website"},
-        {title: "Bio"}
-    ]
+    const [bio, setBio] = useState("")
+    const [email, setEmail] = useState("")
+    const [fullName, setFullName] = useState("")
+    const [gender, setGender] = useState("")
+    const [username, setUsername] = useState("")
+    const [website, setWebsite] = useState("")
+    const [phone, setPhone] = useState("")
 
-    const information = [
-        {title: "Email"},
-        {title: "Phone"},
-        {title: "Gender"}
-    ]
+
+    const loginSubmit = () => {
+
+        marat.post("/auth/registration", {
+            fullName: fullName,
+            username: username,
+            website: website,
+            bio: bio,
+            email: email,
+            phone: phone,
+            gender: gender
+        }).then(res => {
+            console.log(res)
+            localStorage.setItem("user-token", res.data.jwt);
+            navigate("/user/profile");
+        })
+        .catch(({ message }) => {
+            console.log(message);
+        })
+    }
 
     return (
         <Wrapper>
@@ -28,7 +46,7 @@ export const EditProfile = () => {
                 <header>
                     <span onClick={() => navigate(-1)}>Cancel</span>
                     <b>Edit Profile</b>
-                    <p onClick={() => navigate(-1)}>Done</p>
+                    <p onClick={() => loginSubmit}>Done</p>
                 </header>
             </Headers>
 
@@ -38,16 +56,25 @@ export const EditProfile = () => {
             </div>
             
             <div className="info">
-                {
-                    info.map((data) => {
-                        return (
-                            <form action="edit">
-                                <label htmlFor="Name">{data.title}</label>
-                                <input type="text" />
-                            </form>
-                        )
-                    })
-                }
+                 <form action="edit">
+                    <label htmlFor="Name">Name</label>
+                    <input onChange={({ target }) => setFullName(target.value)} type="text" />
+                </form>
+
+                 <form action="edit">
+                    <label htmlFor="Name">Username</label>
+                    <input type="text" onChange={({ target }) => setUsername(target.value)} />
+                </form>
+
+                 <form action="edit">
+                    <label htmlFor="Name">Website</label>
+                    <input type="text" onChange={({ target }) => setWebsite(target.value)} />
+                </form>
+
+                 <form action="edit">
+                    <label htmlFor="Name">Bio</label>
+                    <input type="text" onChange={({ target }) => setBio(target.value)} />
+                </form>
             </div>
 
             <div className="information">
@@ -55,16 +82,20 @@ export const EditProfile = () => {
                 <b>Private Information</b>
 
                 <div className="info">
-                    {
-                        information.map((data) => {
-                            return (
-                                <form action="edit">
-                                    <label htmlFor="Name">{data.title}</label>
-                                    <input type="text" />
-                                </form>
-                            )
-                        })
-                    }
+                    <form action="edit">
+                        <label htmlFor="Name">Email</label>
+                        <input type="text" onChange={({ target }) => setEmail(target.value)} />
+                    </form>
+
+                    <form action="edit">
+                        <label htmlFor="Name">Phone</label>
+                        <input type="text" onChange={({ target }) => setPhone(target.value)} />
+                    </form>
+
+                    <form action="edit">
+                        <label htmlFor="Name">Gender</label>
+                        <input type="text"onChange={({ target }) => setGender(target.value)} />
+                    </form>
                 </div>
 
             </div>
